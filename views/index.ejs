@@ -1,0 +1,30 @@
+</div>
+<%- include("partials/header.ejs") %>
+        <section class="board">
+            <div class="board-txt">
+                <h1 class="board-bold">Welcome to the world <br>of creativity</h1>
+                <hr class="hr">
+                <p class="board-small">Have you imagined numerous ideas as images and you want to bring them into existence. Enter your idea into the box below and generate. </p>
+            </div>
+            <div class="board-img">
+                <img src="/images/ladywow.png" alt="wowed lady">
+                <div class="card">
+                    <ul>
+                        <li>Think of anything</li>
+                        <li>Input your prompt</li>
+                        <li>Bring idea to life</li>
+                    </ul>                        
+                </div>
+            </div>
+        </section>
+        <section class="form">
+            <div class="myform">
+                <form action="/ideas" method="POST">
+                    <label for="ideatext">What do you think of creating?</label>
+                    <p id="msg"><%= message %></p>
+                    <input type="text" id="prompt" name="prompt" required>
+                    <button type="submit" class="generate-btn">Generate</button>
+                </form>
+            </div>
+        </section>
+<%- include("partials/footer.ejs") %>

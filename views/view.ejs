@@ -1,0 +1,63 @@
+</div>
+<%- include("partials/header.ejs") %>
+
+        <section class="board">
+            <div class="board-txt">
+                <h1 class="board-bold">Welcome to the world <br>of creativity</h1>
+                <hr class="hr">
+                <p class="board-small">Have you imagined numerous ideas as images and you want to bring them into existence. Enter your idea into the box below and generate. </p>
+            </div>
+            <div class="board-img">
+                <img src="/images/ladywow.png" alt="wowed lady">
+                <div class="card">
+                    <ul>
+                        <li>Think of anything</li>
+                        <li>Input your prompt</li>
+                        <li>Bring idea to life</li>
+                    </ul>                        
+                </div>
+            </div>
+        </section>
+        <section class="formm">
+            <div class="myformm">
+                <div class="first-div">
+                    <p id="msg"><%= message %></p>
+                    <p class="ideatext">👉<a href="/" style="color: white; text-decoration: none;">Click here</a> to generate new image </p>
+                    <p id="message"></p>
+                    <% if (!ready) { %>
+                    <button type="button" class="view-btn" onclick="window.location.href='/view'">View Image</button>
+                    <% } %>
+                </div>
+
+
+                <% if (image) { %> 
+                <div class="generated-image">
+                    <div class="gen-img"><img src="<%= image %>" alt="Generated image"></div>
+                </div>
+                <% } %>
+            </div>
+        </section>
+
+    <script>
+        const ready = '<%= ready %>';
+        if (!ready) {
+            let i = 0;
+            const interval = setInterval(() => {
+                i = (i + 1) % 4; 
+                $("#message").text("Image generating" + ".".repeat(i)).show();
+                $(".view-btn").hide();
+            }, 500); // every 0.5s
+            setTimeout(() => {
+                clearInterval(interval);
+                $("#message").text("Sharp!!! Image generated ✅").show();
+                $("#msg").hide();
+                $(".view-btn").show();
+            }, 30000); // 30s = 1 minute
+
+            $(".view-btn").on("click", () => {
+                $(".view-btn").hide();
+                $("#msg").hide();
+            });
+        }
+    </script>
+<%- include("partials/footer.ejs") %>

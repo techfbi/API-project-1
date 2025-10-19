@@ -1,0 +1,414 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    overflow-x: hidden; /* Disables horizontal scrolling */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    box-sizing: border-box; /* Ensures consistent box sizing */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* Header section*/
+header {
+    background-color: rgb(40, 36, 36);
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    width: 100vw;
+    padding: 20px 150px;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    font-size: 1.2rem;
+}
+#logo-img {
+    height: 40px;
+    margin-top: 8px;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+
+}
+
+header ul li {
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 700;
+    color: white;
+}
+
+header ul li:hover {
+    color: #F1E0C5; /* highlight color */
+    font-size: 1.3rem;
+}
+
+main {
+    flex: 1;
+    box-sizing: border-box;
+}
+
+/*Footer section*/
+footer {
+    background-color: rgb(40, 36, 36);
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+.board {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 8% 0;
+    background: #F1E0C5;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.board-txt {
+    padding: 10px;
+    flex: 1 1 200px;
+    max-width: 700px;
+}
+
+.board-txt > .board-bold {
+    color: #355e3b;
+    font-size: 3rem;
+    line-height: 1.3;
+    margin-bottom: 10px;
+}
+.hr {
+    width: 30%;
+    height: 15px;
+    background-color: #355e3b;
+    border: none;
+    margin: 0;
+}
+
+.board-txt > .board-small {
+    color: black;
+    font-size: 1.3rem;
+}
+
+.board-img{
+  flex: 1 1 200px;
+  text-align: center;
+  position: relative;
+  max-width: 1000px;
+}
+
+.board-img img {
+    width: 500px;
+    border-radius: 10px;
+    filter: drop-shadow(20px 0px 15px rgba(0, 0, 0, 0.3));
+}
+
+.card {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    padding: 5px 15px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+.form, .formm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fffaf3;
+    box-sizing: border-box;
+    padding: 40px 0;
+}
+.myform {
+    background-color: #355e3b;
+    max-width: 80%;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin-top: 30px;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    /*---------------------------------------------*/
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+}
+
+#prompt {
+    width: 80%;
+    border-radius: 10px;
+    border: 1px solid #F1E0C5;
+    margin: 0 auto 10px auto; /* top right bottom left - auto horizontally */
+    background-color: #ffffff64;
+    padding: 20px 20px;
+    font-size: 1.2rem;
+    display: block; /* important: make sure it's a block element */
+}
+form, .formm {
+    width: 100%; 
+}
+
+
+.myformm {
+    background-color: #355e3b;
+    max-width: 80%;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin-top: 30px;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    /*---------------------------------------------*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+
+}
+
+form label, .ideatext {
+    font-size: 1.9rem;
+    color: #F1E0C5;
+    font-weight: 700;
+}
+
+#msg, #message {
+    font-style: italic;
+    color: white;
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.generate-btn, .view-btn {
+    max-width: 500px;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #F1E0C5;
+    font-weight: 600;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    transition: background 0.4s, transform 0.3s;
+    border: none;
+    box-sizing: border-box;
+    color: black;
+}
+
+.generate-btn:hover, .view-btn:hover {
+    background: #cab188;
+    transform: scale(1.05);
+}
+    /*---------------------------------------------*/
+
+.generated-image {
+    margin-top: 20px;
+    box-shadow: 0 0 40px  #ffffff25;
+    border-radius: 10px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.generated-image img {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 10px;
+}
+
+
+
+@media (max-width: 1570px) {
+    .card {
+        top: 10%;
+        right: 0;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .board-img img {
+        width: 400px;
+    }
+    .card {
+        top: 60%;
+        right: 50%;
+        font-size: 0.7rem;
+    }
+    .myformm {
+        flex-direction: column;
+    }
+    .ideatext {
+        font-size: 1.5rem;
+
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .logo {
+        height: 40px;
+    }
+    .header {
+        font-size: 1rem;
+        padding: 15px 100px;
+    }
+    .board-txt > .board-bold {
+        font-size: 2rem;
+    }
+    .board-txt .board-small {
+        font-size: 1rem;
+    }
+    .board {
+        padding: 20px 5% 0;
+    }
+}
+
+
+@media (max-width: 865px) {
+    .board {
+        display: flex;
+        flex-direction: column;
+    }
+    .board-txt {
+        text-align: center;
+        max-width: 500px;
+    }
+    .hr {
+        margin: auto;
+        height: 10px;
+    }
+    header {
+        padding: 15px 50px;
+    }
+    #logo-img {
+        height: 30px;
+    }
+    .card {
+        top: 10%;
+        right: 10%;
+        font-size: 0.7rem;
+    }
+    .board-img {
+        width: 100%;
+    }
+    .board-txt > .board-bold {
+        font-size: 2rem;
+    }
+    .board-txt > .board-small {
+        font-size: 1.1rem;
+    }
+
+}
+
+@media (max-width: 645px) {
+    .card {
+        right: 0;
+    }
+    form label, .ideatext {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+    #msg, #message {
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
+    #prompt {
+        font-size: 1.1rem;
+        padding: 20px 10px;
+    }
+    .generate-btn, .view-btn {
+        font-size: 1.3rem;
+        border-radius: 6px;
+    }
+    .ideatext {
+        font-size: 1.2rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .card {
+        top: 60%;
+        right: 60%;
+        font-size: 0.5rem;
+        padding: 5px;
+    }
+    .board-img img {
+        max-width: 300px;
+    }
+    .search-form {
+        align-items: center;
+        max-width: 100%;
+    }
+    .left-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    header ul li {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    #logo-img {
+        height: 25px;
+    }
+    .board-txt {
+        max-width: 300px;
+    }
+    .board-txt > .board-bold {
+        font-size: 1.5rem;
+    }
+    .board-txt > .board-small {
+        font-size: 0.8rem;
+    }
+    form label, .ideatext {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+    #msg, #message {
+        font-size: 1rem;
+        font-weight: 300;
+    }
+    #prompt {
+        font-size: 1rem;
+        padding: 10px 10px;
+    }
+    .generate-btn, .view-btn {
+        font-size: 1.1rem;
+        padding: 15px 20px;
+        border-radius: 6px;
+    }
+    .ideatext {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .myformm {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+    .formm {
+        padding: 0;
+    }
+
+} 
+@media (max-width: 300px) {
+    .header {
+        flex-wrap: wrap;
+        font-size: 1rem;
+        place-content: center;
+    }
+}
