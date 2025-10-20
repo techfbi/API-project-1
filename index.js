@@ -24,40 +24,6 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
-/* Webhook endpoint (Freepik calls this when task completes)
-app.post("/webhook/freepik", express.raw({ type: "*//*" }), (req, res) => { 
-  try {
-    // Verify signature
-    const id = req.headers["webhook-id"];
-    const ts = req.headers["webhook-timestamp"];
-    const sigHeader = req.headers["webhook-signature"];
-    const rawBody = req.body.toString("utf8");
-    
-    const hmac = crypto.createHmac("sha256", WEBHOOK_SECRET);
-    hmac.update(`${id}.${ts}.${rawBody}`);
-    const validSig = sigHeader?.includes(hmac.digest("base64"));
-    if (!validSig) return res.status(401).send("Invalid signature");
-
-    const payload = JSON.parse(rawBody);
-    console.log("✅ Webhook received:", payload);
-    console.log("Incoming webhook from Freepik:", req.body.toString());
-
-
-    const imageUrl = payload?.data?.generated?.[0]?.url;
-    if (imageUrl) {
-      generatedImage = imageUrl; // store for homepage rendering
-      console.log("🖼️ Image URL:", imageUrl);
-    }
-
-    res.status(200).send("OK");
-  } catch (err) {
-    console.error("Webhook error:", err.message);
-    res.status(500).send("Server error");
-  }
-});
-*/
-
-
 let taskId = [];
 
 // Home page
@@ -75,8 +41,7 @@ app.post("/ideas", async (req, res) => {
     const body = {
       prompt: req.body.prompt,
       aspect_ratio: "square_1_1",
-      resolution: "2k",
-      webhook_url: "https://clarita-phantasmagorical-jessi.ngrok-free.dev/webhook/freepik",
+      resolution: "2k"
     };
 
     const response = await axios.post("https://api.freepik.com/v1/ai/mystic", body, config);
