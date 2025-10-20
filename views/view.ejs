@@ -27,18 +27,24 @@
                     <% if (!ready) { %>
                     <button type="button" class="view-btn" onclick="window.location.href='/view'">View Image</button>
                     <% } %>
+
+                    <!-- Fullscreen modal -->
+                    <div id="imageModal" class="image-modal" onclick="closeFullView()">
+                        <img id="modalImg" class="modal-content">
+                    </div>
                 </div>
 
 
-                <% if (image) { %> 
-                <div class="generated-image">
-                    <div class="gen-img"><img src="<%= image %>" alt="Generated image"></div>
-                </div>
+                <% if (image) { %>
+                    <div class="generated-image">
+                        <div class="gen-img"><img id="gen-img" src="<%= image %>" alt="Generated image" onclick="openFullView(this.src)"></div>
+                    </div>
                 <% } %>
             </div>
         </section>
 
     <script>
+        // This is to set a waiting message while image is being generated
         const ready = '<%= ready %>';
         if (!ready) {
             let i = 0;
@@ -59,5 +65,21 @@
                 $("#msg").hide();
             });
         }
+
+
+        // View fullscreen
+        function openFullView(src) {
+            const modal = $("#imageModal");
+            const modalImg = $("#modalImg");
+            modal.css("display","flex");
+            modalImg.attr("src", src);
+        }
+
+        // Close fullscreen
+        function closeFullView() {
+            $("#imageModal").css("display", "none");
+        }
+
+
     </script>
 <%- include("partials/footer.ejs") %>
